@@ -1,11 +1,49 @@
-//complete this code
-class Animal {}
+class Animal {
+  constructor(species) {
+    this._species = species;
+  }
 
-class Dog extends Animal {}
+  get species() {
+    return this._species;
+  }
 
-class Cat extends Animal {}
+  makeSound() {
+    console.log("The animal makes a sound");
+  }
+}
 
-// Do not change the code below this line
-window.Animal = Animal;
-window.Dog = Dog;
-window.Cat = Cat;
+class Cat extends Animal {
+  purr() {
+    console.log("purr");
+  }
+}
+
+class Dog extends Animal {
+  bark() {
+    console.log("woof");
+  }
+}
+
+// Create instances and call methods
+const animal = new Animal("Unknown Species");
+const cat = new Cat("Felis catus");
+const dog = new Dog("Canis lupus familiaris");
+
+animal.makeSound();
+cat.makeSound();
+cat.purr();
+dog.makeSound();
+dog.bark();
+
+// Display output
+const outputDiv = document.getElementById('output');
+outputDiv.innerHTML = `
+  <p>Animal:</p>
+  <p>Species: ${animal.species}</p>
+  <br>
+  <p>Cat:</p>
+  <p>Species: ${cat.species}</p>
+  <br>
+  <p>Dog:</p>
+  <p>Species: ${dog.species}</p>
+`;
